@@ -1,0 +1,19 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "static/uploads"
+public_folder: "/static/uploads"
+
+collections:
+  - name: "posts"
+    label: "お知らせ"
+    folder: "posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "タイトル", name: "title", widget: "string" }
+      - { label: "日付", name: "date", widget: "datetime", format: "yyyy-MM-dd" }
+      - { label: "サマリー", name: "summary", widget: "text" }
+      - { label: "本文", name: "body", widget: "markdown" }
+      - { label: "公開ファイル名 (任意)", name: "path", widget: "string", required: false, hint: "生成時に使う HTML ファイル名（例: 2025-10-01-press.html）" }

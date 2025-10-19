@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="西急電鉄 オフィシャルサイト - 路線案内、時刻表、会社情報、お知らせ">
+    <meta property="og:title" content="西急電鉄">
+    <meta property="og:description" content="地域とくらしをつなぐ、安全で快適な鉄道サービスを提供します。">
+    <meta property="og:image" content="train_taninuma.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>西急電鉄</title>
+    <!-- Web font: Noto Sans JP (Japanese-friendly) -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <a class="skip-link" href="#main">コンテンツにスキップ</a>
+
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="brand" href="index.html" aria-label="ホームへ">
+                <img src="icon.png" alt="西急ロゴ" class="logo">
+                <div>
+                    <h1 class="site-title">西急電鉄</h1>
+                    <p class="site-sub">地域とくらしをつなぐ</p>
+                </div>
+            </a>
+
+            <button id="menuToggle" class="menu-toggle" aria-expanded="false" aria-controls="main-nav">
+                <span class="sr-only">メニューを開く</span>
+                <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke="#0b3954" stroke-width="2" stroke-linecap="round" d="M3 6h18M3 12h18M3 18h18"></path>
+                </svg>
+            </button>
+
+            <nav id="main-nav" class="main-nav" aria-label="メインナビゲーション" aria-hidden="true">
+                <ul>
+                    <li><a href="index.html">ホーム</a></li>
+                    <li><a href="news.html">お知らせ</a></li>
+                    <li><a href="network.html">運行情報</a></li>
+                    <li><a href="company.html">会社情報</a></li>
+                    <li><a href="company.html#contact">お問い合わせ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main id="main">
+        <section id="home" class="hero">
+            <div class="container hero-inner">
+                <div class="content">
+                    <h2>ようこそ、西急電鉄へ</h2>
+                    <p>地域とくらしをつなぐ、安全で快適な鉄道サービスを提供します。</p>
+                    <div class="hero-actions">
+                        <a class="btn" href="network.html">路線図を確認</a>
+                    </div>
+                </div>
+                <div class="card" aria-hidden="true"></div>
+            </div>
+        </section>
+
+        <section id="network" class="section">
+            <div class="container">
+                <h3>路線図</h3>
+                <p>当社はA線とB線の2路線を運行しています。以下は簡易路線図（サンプル）です。</p>
+                <div class="map-sample" aria-hidden="true">
+                    <svg viewBox="0 0 600 120" class="svg-map">
+                        <line x1="20" y1="60" x2="580" y2="60" stroke="#0b3954" stroke-width="6" stroke-linecap="round"/>
+                        <g fill="#fff" stroke="#0b3954" stroke-width="2">
+                            <circle cx="60" cy="60" r="14"></circle>
+                            <circle cx="180" cy="60" r="14"></circle>
+                            <circle cx="300" cy="60" r="14"></circle>
+                            <circle cx="420" cy="60" r="14"></circle>
+                            <circle cx="540" cy="60" r="14"></circle>
+                        </g>
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+        <section id="timetable" class="section">
+            <div class="container">
+                <h3>時刻表検索</h3>
+                <p>駅名を入力して発車時刻を検索できます（サンプルデータ）。</p>
+
+                <form id="timetableForm" class="search-form" onsubmit="return false;">
+                    <label for="stationInput" class="sr-only">駅名</label>
+                    <input id="stationInput" type="text" placeholder="駅名を入力（例: 中央駅）" aria-label="駅名を入力">
+                    <button id="searchBtn" class="btn">検索</button>
+                </form>
+
+                <div id="results" class="results" aria-live="polite"></div>
+            </div>
+        </section>
+
+        <section id="company" class="section muted">
+            <div class="container">
+                <h3>会社情報</h3>
+                <p>西急電鉄株式会社は、地域の移動を支える鉄道事業を運営しています。安全第一でサービスを提供します。</p>
+                <ul>
+                    <li>設立: 19xx年</li>
+                    <li>本社: サンプル市中央区</li>
+                    <li>事業内容: 鉄道事業、施設管理、沿線サービス</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section contact">
+            <div class="container">
+                <h3>お問い合わせ</h3>
+                <p>お問い合わせは会社情報ページのフォームから承ります。</p>
+                <p><a href="company.html#contact">会社情報ページのお問い合わせフォームへ移動</a></p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <p>&copy; <span id="year"></span> 西急電鉄株式会社</p>
+            <nav aria-label="フッターナビ">
+                <ul class="footer-links">
+                    <li><a href="terms.html">利用規約</a></li>
+                    <li><a href="privacy.html">プライバシー</a></li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
+
+    <script src="script.js" defer></script>
+</body>
+</html>

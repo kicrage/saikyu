@@ -1,0 +1,98 @@
+/* Basic reset and utilities */
+:root{
+    /* Metro-like palette: deep blue + teal accent */
+    --brand:#0b3b5f; /* deep blue */
+    --brand-contrast:#ffffff;
+    --accent:#00a5b5; /* teal / metro accent */
+    --muted:#f6f9fb;
+    --card:#ffffff;
+    --maxwidth:1100px;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{font-family:'Noto Sans JP', system-ui, -apple-system, 'Segoe UI', Roboto, 'Hiragino Kaku Gothic ProN', 'Helvetica', Arial, sans-serif;margin:0;color:var(--brand);background:linear-gradient(180deg,var(--muted),#fff);line-height:1.6}
+.container{max-width:var(--maxwidth);margin:0 auto;padding:1rem}
+a{color:var(--brand);text-decoration:none}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.skip-link{position:absolute;left:1rem;top:0.5rem;background:#fff;padding:0.25rem 0.5rem;border-radius:4px;z-index:999;transform:translateY(-120%);transition:transform .2s}
+.skip-link:focus{transform:translateY(0)}
+
+/* Header */
+.site-header{background:var(--card);border-bottom:1px solid rgba(11,57,84,0.06);position:sticky;top:0;z-index:1000;box-shadow:0 2px 6px rgba(11,57,84,0.03);backdrop-filter: blur(6px)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;padding:.5rem 0}
+.brand{display:flex;align-items:center;gap:.75rem}
+.brand{text-decoration:none;color:inherit}
+.brand:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:8px}
+.logo{width:44px;height:44px;object-fit:contain;color:var(--accent);border-radius:6px;flex-shrink:0}
+.site-title{font-size:1.125rem;margin:0;font-weight:700;color:var(--brand)}
+.site-sub{font-size:.75rem;margin:0;color:#4a677a}
+.menu-toggle{background:transparent;border:0;padding:.25rem;display:none}
+.main-nav ul{list-style:none;margin:0;padding:0;display:flex;gap:1rem}
+.main-nav a{display:block;padding:.5rem .65rem;border-radius:6px;font-weight:500}
+.main-nav a:hover{background:var(--muted)}
+
+/* Active/current nav item */
+.main-nav a.active,
+.main-nav a[aria-current="page"]{
+    background: linear-gradient(90deg, rgba(0,165,181,0.12), rgba(11,59,95,0.04));
+    color: var(--brand);
+    font-weight:700;
+}
+
+/* Hero */
+.hero{padding:2.25rem 0}
+.hero-inner{display:flex;gap:1rem;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.hero .content{flex:1;min-width:220px}
+.hero .card{flex:0 0 360px;background:linear-gradient(180deg,var(--card),#fbfdff);border-radius:10px;padding:1rem;box-shadow:0 8px 30px rgba(11,57,84,0.06);border:1px solid rgba(11,57,84,0.04)}
+.hero h2{font-size:1.6rem;margin:0;color:var(--brand)}
+.hero p{margin:.5rem 0 0;color:#4a677a}
+.hero-actions{display:flex;gap:.5rem;margin-top:1rem}
+.btn{display:inline-block;padding:.6rem 1rem;border-radius:6px;border:1px solid var(--brand);background:transparent;color:var(--brand);cursor:pointer}
+.btn.primary{background:var(--brand);color:var(--brand-contrast);border-color:var(--brand)}
+.btn.accent{background:var(--accent);color:#fff;border-color:var(--accent)}
+
+.section{padding:1.25rem 0}
+.muted{background:#f8fbfc}
+.map-sample{margin-top:0.75rem;border-radius:8px;padding:.5rem}
+.svg-map{width:100%;height:140px}
+
+/* Search form */
+.search-form{display:flex;gap:.5rem;margin-top:.75rem}
+.search-form input[type="text"]{flex:1;padding:.6rem;border:1px solid #d7eaf0;border-radius:8px}
+.results{margin-top:.75rem}
+.timetable{width:100%;border-collapse:collapse;background:linear-gradient(180deg,#fff,#fbfdff);border-radius:8px;overflow:hidden}
+.timetable th,.timetable td{padding:.65rem .75rem;text-align:left;border-bottom:1px solid #eef7fb}
+.timetable th{background:#f4fbfc;color:#234;font-weight:600}
+
+/* News list */
+.news-list{margin-top:1rem}
+.news-ul{list-style:none;padding:0;margin:0;display:grid;gap:.75rem}
+.news-ul li{background:#fff;border:1px solid rgba(11,57,84,0.04);padding:.75rem;border-radius:8px}
+.news-ul a{font-weight:700;color:var(--brand)}
+.news-summary{margin:.25rem 0 0;color:#4a677a;font-size:.95rem}
+
+/* Footer */
+.site-footer{border-top:1px solid rgba(11,57,84,0.06);padding:.75rem 0;margin-top:1.25rem;background:#fff}
+.footer-inner{display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.footer-links{list-style:none;margin:0;padding:0;display:flex;gap:.5rem}
+
+/* Responsive */
+@media (max-width:900px){
+    .menu-toggle{display:block}
+    .main-nav{position:absolute;right:1rem;top:64px;background:#fff;padding:0.75rem;border-radius:8px;box-shadow:0 6px 18px rgba(11,57,84,0.08);display:none}
+    .main-nav[aria-hidden="false"]{display:block}
+    .main-nav ul{flex-direction:column}
+    .hero h2{font-size:1.25rem}
+    .hero .card{flex:1 1 100%}
+}
+
+@media (min-width:901px){
+    .main-nav{display:block}
+}
+
+/* Hero background image using provided train image */
+.hero{background-image:linear-gradient(rgba(255,255,255,0.4), rgba(255,255,255,0.6)), url('train_taninuma.png');
+    background-size:cover;background-position:center;padding:3rem 0}
+.hero .card{background:transparent;border:0;box-shadow:none;min-height:180px;background-size:cover;background-position:center;border-radius:12px}
+.hero .card[aria-hidden="true"]{background-image: none}
+.hero .content{background:rgba(255,255,255,0.7);padding:1rem;border-radius:8px}
